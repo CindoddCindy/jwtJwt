@@ -1,4 +1,4 @@
 package com.cindodjwt.cindodjwtjwt.config;
 
-public class WebMvcConfig {
+public class SecurityConfigSeller {
 }
