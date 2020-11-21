@@ -1,4 +1,6 @@
 package com.cindodjwt.cindodjwtjwt.config;
 
-public class SecurityConfigBuyer {
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+public class SecurityConfigBuyer  extends WebSecurityConfigurerAdapter {
 }
