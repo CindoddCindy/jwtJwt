@@ -1,15 +1,56 @@
 package com.cindodjwt.cindodjwtjwt.model;
 
-public class Buyer {
+import com.cindodjwt.cindodjwtjwt.model.audit.DateAudit;
+import org.hibernate.annotations.NaturalId;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
+
+
+@Entity
+@Table(name = "buyer", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {
+                "namebuyer"
+        }),
+        @UniqueConstraint(columnNames = {
+                "emailbuyer"
+        })
+})
+public class Buyer extends DateAudit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBuyer;
 
+    @NotBlank
+    @Size(max = 40)
     private String nameBuyer;
 
+    @NaturalId
+    @NotBlank
+    @Size(max = 40)
+    @Email
     private String emailBuyer;
 
+    @NotBlank
+    @Size(max = 15)
     private String phoneBuyer;
 
+    @NotBlank
+    @Size(max = 100)
     private String passwordBuyer;
+
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "customer_roles",
+            joinColumns = @JoinColumn(name = "buyer_id"),
+            inverseJoinColumns = @JoinColumn(name = "buyer_role_id"))
+    private Set<Role> roles = new HashSet<>();
+
 
     public Buyer(Long idBuyer, String nameBuyer, String emailBuyer, String phoneBuyer, String passwordBuyer) {
         this.idBuyer = idBuyer;

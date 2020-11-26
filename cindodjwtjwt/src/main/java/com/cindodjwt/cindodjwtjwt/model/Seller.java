@@ -47,7 +47,7 @@ public class Seller extends DateAudit {
     private String passwordSeller;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "seller_roles",
+    @JoinTable(name = "customer_roles",
             joinColumns = @JoinColumn(name = "seller_id"),
             inverseJoinColumns = @JoinColumn(name = "seller_role_id"))
     private Set<Role> roles = new HashSet<>();
