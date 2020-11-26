@@ -44,6 +44,13 @@ public class Buyer extends DateAudit {
     @Size(max = 100)
     private String passwordBuyer;
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "customer_roles",

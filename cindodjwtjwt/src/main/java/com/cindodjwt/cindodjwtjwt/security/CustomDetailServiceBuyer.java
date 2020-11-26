@@ -25,7 +25,7 @@ public class CustomDetailServiceBuyer implements UserDetailsService {
                         new UsernameNotFoundException("User not found with username or email : " + s)
                 );
 
-        return UserPrincipal.create(buyer);
+        return BuyerPrincipal.createBuyer(buyer);
        // return null;
     }
 
@@ -35,6 +35,6 @@ public class CustomDetailServiceBuyer implements UserDetailsService {
                 () -> new UsernameNotFoundException("User not found with id : " + id)
         );
 
-        return UserPrincipal.create(buyer);
+        return BuyerPrincipal.createBuyer(buyer);
     }
 }
