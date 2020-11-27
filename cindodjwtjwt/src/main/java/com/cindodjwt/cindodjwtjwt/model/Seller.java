@@ -69,6 +69,13 @@ public class Seller extends DateAudit {
         this.passwordSeller = passwordSeller;
     }
 
+    public Seller(@NotBlank @Size(max = 40) String nameseller, @NotBlank @Size(max = 40) @Email String emailSeller, @NotBlank @Size(max = 15) String phoneSeller, @NotBlank @Size(max = 100) String passwordSeller) {
+        this.nameseller = nameseller;
+        this.emailSeller = emailSeller;
+        this.phoneSeller = phoneSeller;
+        this.passwordSeller = passwordSeller;
+    }
+
     public Long getIdSeller() {
         return idSeller;
     }
