@@ -29,7 +29,7 @@ public class Seller extends DateAudit {
 
     @NotBlank
     @Size(max = 40)
-    private String nameseller;
+    private String nameSeller;
 
 
     @NaturalId
@@ -61,16 +61,16 @@ public class Seller extends DateAudit {
     private Set<Role> roles = new HashSet<>();
 
 
-    public Seller(Long idSeller, String nameseller, String emailSeller, String phoneSeller, String passwordSeller) {
+    public Seller(Long idSeller, String nameSeller, String emailSeller, String phoneSeller, String passwordSeller) {
         this.idSeller = idSeller;
-        this.nameseller = nameseller;
+        this.nameSeller = nameSeller;
         this.emailSeller = emailSeller;
         this.phoneSeller = phoneSeller;
         this.passwordSeller = passwordSeller;
     }
 
-    public Seller(@NotBlank @Size(max = 40) String nameseller, @NotBlank @Size(max = 40) @Email String emailSeller, @NotBlank @Size(max = 15) String phoneSeller, @NotBlank @Size(max = 100) String passwordSeller) {
-        this.nameseller = nameseller;
+    public Seller(@NotBlank @Size(max = 40) String nameSeller, @NotBlank @Size(max = 40) @Email String emailSeller, @NotBlank @Size(max = 15) String phoneSeller, @NotBlank @Size(max = 100) String passwordSeller) {
+        this.nameSeller = nameSeller;
         this.emailSeller = emailSeller;
         this.phoneSeller = phoneSeller;
         this.passwordSeller = passwordSeller;
@@ -85,11 +85,11 @@ public class Seller extends DateAudit {
     }
 
     public String getNameseller() {
-        return nameseller;
+        return nameSeller;
     }
 
-    public void setNameseller(String nameseller) {
-        this.nameseller = nameseller;
+    public void setNameseller(String nameSeller) {
+        this.nameSeller = nameSeller;
     }
 
     public String getEmailSeller() {

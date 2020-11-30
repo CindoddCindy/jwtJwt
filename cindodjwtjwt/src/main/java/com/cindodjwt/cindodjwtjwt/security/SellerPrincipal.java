@@ -22,7 +22,7 @@ public class SellerPrincipal implements UserDetails {
     private Long idSeller;
 
 
-    private String nameseller;
+    private String nameSeller;
 
     @JsonIgnore
     private  String emailSeller;
@@ -34,9 +34,9 @@ public class SellerPrincipal implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public SellerPrincipal(Long idSeller, String nameseller, String emailSeller, String phoneSeller, String passwordSeller, Collection<? extends GrantedAuthority> authorities) {
+    public SellerPrincipal(Long idSeller, String nameSeller, String emailSeller, String phoneSeller, String passwordSeller, Collection<? extends GrantedAuthority> authorities) {
         this.idSeller = idSeller;
-        this.nameseller = nameseller;
+        this.nameSeller = nameSeller;
         this.emailSeller = emailSeller;
         this.phoneSeller = phoneSeller;
         this.passwordSeller = passwordSeller;
@@ -51,7 +51,7 @@ public class SellerPrincipal implements UserDetails {
 
         return new SellerPrincipal(
                 seller.getIdSeller(),
-               seller.getNameseller(),
+                seller.getNameseller(),
                 seller.getEmailSeller(),
                 seller.getPhoneSeller(),
                 seller.getPasswordSeller(),
@@ -72,11 +72,11 @@ public class SellerPrincipal implements UserDetails {
     }
 
     public String getNameseller() {
-        return nameseller;
+        return nameSeller;
     }
 
     public void setNameseller(String nameseller) {
-        this.nameseller = nameseller;
+        this.nameSeller = nameSeller;
     }
 
     public String getEmailSeller() {

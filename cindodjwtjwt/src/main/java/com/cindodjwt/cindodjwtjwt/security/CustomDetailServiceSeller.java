@@ -18,6 +18,7 @@ public class CustomDetailServiceSeller implements UserDetailsService {
 
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
         // Let people login with either username or email

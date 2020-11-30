@@ -20,6 +20,7 @@ public class CustomDetailServiceBuyer implements UserDetailsService {
 
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         // Let people login with either username or email
         Buyer buyer = buyerRepository.findBuyerByUsernameOrEmail(s, s)
