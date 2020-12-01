@@ -13,7 +13,7 @@ import java.util.Date;
 @Component
 public class BuyerTokenProvider {
 
-    private static final Logger logger = LoggerFactory.getLogger(SellerTokenProvider.class);
+    private static final Logger logger = LoggerFactory.getLogger(BuyerTokenProvider.class);
 
     @Value("${app.jwtSecret}")
     private String jwtSecret;

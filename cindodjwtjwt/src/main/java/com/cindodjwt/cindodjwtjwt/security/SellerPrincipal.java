@@ -51,7 +51,7 @@ public class SellerPrincipal implements UserDetails {
 
         return new SellerPrincipal(
                 seller.getIdSeller(),
-                seller.getNameseller(),
+                seller.getNameSeller(),
                 seller.getEmailSeller(),
                 seller.getPhoneSeller(),
                 seller.getPasswordSeller(),

@@ -88,9 +88,9 @@ public class SecurityConfigBuyer  extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/api/auth/**")
                 .permitAll()
-                .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")
+                .antMatchers("/api/buyer/checkUsernameAvailability", "/api/buyer/checkEmailAvailability")
                 .permitAll()
-                .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")
+                .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/buyer/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();

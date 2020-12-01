@@ -18,15 +18,13 @@ import java.io.IOException;
 
 public class JwtAuthenticationFilterBuyer extends OncePerRequestFilter {
 
-
-
     @Autowired
     private BuyerTokenProvider buyerTokenProvider;//dari kelas JwtToken Provider satu package
 
     @Autowired
     private CustomDetailServiceBuyer customDetailServiceBuyer;// di panggil lagi kelasnya di sini
 
-    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilterSeller.class);
+    private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilterBuyer.class);
 
 
     @Override

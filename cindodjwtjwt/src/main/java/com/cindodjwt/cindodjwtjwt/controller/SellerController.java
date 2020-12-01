@@ -94,7 +94,7 @@ public class SellerController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerSeller(@Valid @RequestBody SignUpRequest signUpRequest) {
-        if(sellerRepository.sellerExistsByName(signUpRequest.getNameseller())) {
+        if(sellerRepository.sellerExistsByName(signUpRequest.getNameSeller())) {
             return new ResponseEntity(new ApiResponse(false, "Username is already taken!"),
                     HttpStatus.BAD_REQUEST);
         }
@@ -105,7 +105,7 @@ public class SellerController {
         }
 
         // Creating user's account
-        Seller seller = new Seller(signUpRequest.getNameseller(), signUpRequest.getEmailSeller(),
+        Seller seller = new Seller(signUpRequest.getNameSeller(), signUpRequest.getEmailSeller(),
                 signUpRequest.getPhoneSeller(), signUpRequest.getPasswordSeller());
 
         seller.setPasswordSeller(passwordEncoder.encode(seller.getPasswordSeller()));
@@ -118,8 +118,8 @@ public class SellerController {
         Seller result = sellerRepository.save(seller);
 
         URI location = ServletUriComponentsBuilder
-                .fromCurrentContextPath().path("/api/seller/{nameseller}")
-                .buildAndExpand(result.getNameseller()).toUri();
+                .fromCurrentContextPath().path("/api/seller/{nameSeller}")
+                .buildAndExpand(result.getNameSeller()).toUri();
 
         return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
     }

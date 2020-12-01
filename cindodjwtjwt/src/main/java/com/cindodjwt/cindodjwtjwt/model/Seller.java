@@ -14,10 +14,10 @@ import java.util.Set;
 @Entity
 @Table(name = "seller", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                "nameseller"
+                "nameSeller"
         }),
         @UniqueConstraint(columnNames = {
-                "emailseller"
+                "emailSeller"
         })
 })
 public class Seller extends DateAudit {
@@ -84,11 +84,11 @@ public class Seller extends DateAudit {
         this.idSeller = idSeller;
     }
 
-    public String getNameseller() {
+    public String getNameSeller() {
         return nameSeller;
     }
 
-    public void setNameseller(String nameSeller) {
+    public void setNameSeller(String nameSeller) {
         this.nameSeller = nameSeller;
     }
 

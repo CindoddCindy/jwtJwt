@@ -10,7 +10,7 @@ public class SignUpRequest {
 
     @NotBlank
     @Size(min = 4, max = 40)
-    private String nameseller;
+    private String nameSeller;
 
 
     @NotBlank
@@ -48,12 +48,12 @@ public class SignUpRequest {
     private String passwordBuyer;
 
 
-    public String getNameseller() {
-        return nameseller;
+    public String getNameSeller() {
+        return nameSeller;
     }
 
-    public void setNameseller(String nameseller) {
-        this.nameseller = nameseller;
+    public void setNameseller(String nameSeller) {
+        this.nameSeller = nameSeller;
     }
 
     public String getEmailSeller() {

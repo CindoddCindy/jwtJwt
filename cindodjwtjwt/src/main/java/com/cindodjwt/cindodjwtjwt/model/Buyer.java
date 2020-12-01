@@ -14,10 +14,10 @@ import java.util.Set;
 @Entity
 @Table(name = "buyer", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                "namebuyer"
+                "nameBuyer"
         }),
         @UniqueConstraint(columnNames = {
-                "emailbuyer"
+                "emailBuyer"
         })
 })
 public class Buyer extends DateAudit {

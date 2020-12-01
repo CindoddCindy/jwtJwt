@@ -117,7 +117,7 @@ public class BuyerController {
         Buyer result = buyerRepository.save(buyer);
 
         URI location = ServletUriComponentsBuilder
-                .fromCurrentContextPath().path("/api/buyer/{namebuyer}")
+                .fromCurrentContextPath().path("/api/buyer/{nameBuyer}")
                 .buildAndExpand(result.getNameBuyer()).toUri();
 
         return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
