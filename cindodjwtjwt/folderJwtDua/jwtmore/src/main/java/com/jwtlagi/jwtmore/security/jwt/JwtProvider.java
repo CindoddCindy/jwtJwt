@@ -1,6 +1,7 @@
 package com.jwtlagi.jwtmore.security.jwt;
 
 import com.jwtlagi.jwtmore.security.services.UserPrinciple;
+import io.jsonwebtoken.*;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
