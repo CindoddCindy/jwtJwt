@@ -1,4 +1,7 @@
 package com.jwtlagi.jwtmore.security.jwt;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import com.jwtlagi.jwtmore.security.services.UserDetailServiceImpl;
 import org.slf4j.LoggerFactory;
@@ -14,7 +17,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.logging.Logger;
 
 public class JwtAuthTokenFilter extends OncePerRequestFilter {
     @Autowired
