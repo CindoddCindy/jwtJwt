@@ -52,4 +52,59 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+
+    public User(@NotBlank @Size(min = 3, max = 50) String nameUser, @NotBlank @Size(min = 3, max = 20) Long phoneUser, @NotBlank @Size(max = 50) @Email String emailUser, @NotBlank @Size(min = 6, max = 100) String passwordUser) {
+        this.nameUser = nameUser;
+        this.phoneUser = phoneUser;
+        this.emailUser = emailUser;
+        this.passwordUser = passwordUser;
+    }
+
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
+    }
+
+    public Long getPhoneUser() {
+        return phoneUser;
+    }
+
+    public void setPhoneUser(Long phoneUser) {
+        this.phoneUser = phoneUser;
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
+
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
+    }
+
+    public String getPasswordUser() {
+        return passwordUser;
+    }
+
+    public void setPasswordUser(String passwordUser) {
+        this.passwordUser = passwordUser;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 }
