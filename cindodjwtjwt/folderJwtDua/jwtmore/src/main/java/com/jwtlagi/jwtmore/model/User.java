@@ -60,6 +60,9 @@ public class User {
         this.passwordUser = passwordUser;
     }
 
+    public User(String nameUser, String emailUser, Long phoneUser, String encode) {
+    }
+
     public Long getIdUser() {
         return idUser;
     }
