@@ -48,8 +48,8 @@ public class AuthRestAPI {
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        loginRequest.getNameUser(),
-                        loginRequest.getPasswordUser()
+                        loginRequest.getName(),
+                        loginRequest.getPassword()
                 )
         );
 
@@ -61,19 +61,19 @@ public class AuthRestAPI {
 
     @PostMapping("/signup")
     public ResponseEntity<String> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
-        if(userRepository.userExistByName(signUpRequest.getNameUser())) {
+        if(userRepository.userExistByName(signUpRequest.getName())) {
             return new ResponseEntity<String>("Fail -> Username is already taken!",
                     HttpStatus.BAD_REQUEST);
         }
 
-        if(userRepository.userExistByEmail(signUpRequest.getEmailUser())) {
+        if(userRepository.userExistByEmail(signUpRequest.getEmail())) {
             return new ResponseEntity<String>("Fail -> Email is already in use!",
                     HttpStatus.BAD_REQUEST);
         }
 
         // Creating user's account
-        User user = new User(signUpRequest.getNameUser(), signUpRequest.getEmailUser(),
-                signUpRequest.getPhoneUser(), encoder.encode(signUpRequest.getPasswordUser()));
+        User user = new User(signUpRequest.getName(), signUpRequest.getEmail(),
+                signUpRequest.getPhone(), encoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
