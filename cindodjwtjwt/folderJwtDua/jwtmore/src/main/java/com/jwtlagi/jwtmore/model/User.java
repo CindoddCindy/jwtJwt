@@ -14,10 +14,10 @@ import java.util.Set;
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                "username"
+                "nameUser"
         }),
         @UniqueConstraint(columnNames = {
-                "email"
+                "emailUser"
         })
 })
 

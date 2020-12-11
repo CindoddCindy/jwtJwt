@@ -1,6 +1,7 @@
 package com.jwtlagi.jwtmore.model;
 
 public enum RoleName {
-    ROLE_USER_BUYER,
-    ROLE_USER_SELLER
+    ROLE_BUYER,
+    ROLE_SELLER,
+    ROLE_ADMIN
 }
