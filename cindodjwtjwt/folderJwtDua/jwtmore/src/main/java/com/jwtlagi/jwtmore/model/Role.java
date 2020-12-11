@@ -14,33 +14,29 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRole;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     @NaturalId
     @Column(length = 60)
-    private RoleName roleName;
+    private RoleName name;
 
     public Role() {
     }
 
-    public Role(RoleName roleName) {
-        this.roleName = roleName;
+    public Long getId() {
+        return id;
     }
 
-    public Long getIdRole() {
-        return idRole;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setIdRole(Long idRole) {
-        this.idRole = idRole;
+    public RoleName getName() {
+        return name;
     }
 
-    public RoleName getNameRole() {
-        return roleName;
-    }
-
-    public void setNameRole(RoleName roleName) {
-        this.roleName = roleName;
+    public void setName(RoleName name) {
+        this.name = name;
     }
 }

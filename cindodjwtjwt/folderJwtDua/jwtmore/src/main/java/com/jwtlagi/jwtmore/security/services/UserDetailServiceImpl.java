@@ -14,11 +14,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
     UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 
-        User user = userRepository.findUserByName(userName)
+        User user = userRepository.findByName(name)
                 .orElseThrow(() ->
-                        new UsernameNotFoundException("User Not Found with -> username or email : " + userName)
+                        new UsernameNotFoundException("User Not Found with -> username or email : " + name)
                 );
 
         return UserPrinciple.build(user);
