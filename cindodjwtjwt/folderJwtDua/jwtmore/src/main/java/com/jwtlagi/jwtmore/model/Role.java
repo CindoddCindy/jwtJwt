@@ -1,10 +1,12 @@
 package com.jwtlagi.jwtmore.model;
 
 
+
+
 import org.hibernate.annotations.NaturalId;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "roles")
@@ -17,13 +19,13 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @NaturalId
     @Column(length = 60)
-    private RoleName nameRole;
+    private RoleName roleName;
 
     public Role() {
     }
 
-    public Role(RoleName nameRole) {
-        this.nameRole = nameRole;
+    public Role(RoleName roleName) {
+        this.roleName = roleName;
     }
 
     public Long getIdRole() {
@@ -35,10 +37,10 @@ public class Role {
     }
 
     public RoleName getNameRole() {
-        return nameRole;
+        return roleName;
     }
 
-    public void setNameRole(RoleName nameRole) {
-        this.nameRole = nameRole;
+    public void setNameRole(RoleName roleName) {
+        this.roleName = roleName;
     }
 }

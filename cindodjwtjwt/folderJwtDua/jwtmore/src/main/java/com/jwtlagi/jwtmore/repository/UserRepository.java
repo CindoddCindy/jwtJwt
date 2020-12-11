@@ -1,18 +1,17 @@
 package com.jwtlagi.jwtmore.repository;
 
 import com.jwtlagi.jwtmore.model.User;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByUsername(String nameUser);
-    Boolean existsByUsername(String nameUser);
-    Boolean existsByEmail(String emailUser);
+    Optional<User> findUserByName(String nameUser);
+    Boolean userExistByName(String nameUser);
+    Boolean userExistByEmail(String emailUser);
 
 
 }

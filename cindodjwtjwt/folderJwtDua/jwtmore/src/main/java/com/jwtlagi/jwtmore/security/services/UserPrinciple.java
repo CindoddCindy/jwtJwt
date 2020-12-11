@@ -20,67 +20,6 @@ import java.util.stream.Collectors;
 
 public class UserPrinciple implements UserDetails {
 
-    private static final long serialVersionUID = 1L;
-
-    private Long idUser;
-
-    private String nameUser;
-
-    private Long phoneUser;
-
-    private String emailUser;
-
-    @JsonIgnore
-    private String passwordUser;
-
-    private Collection<? extends GrantedAuthority> authorities;
-
-    public UserPrinciple(Long idUser, String nameUser, Long phoneUser, String emailUser, String passwordUser, Collection<? extends GrantedAuthority> authorities) {
-        this.idUser = idUser;
-        this.nameUser = nameUser;
-        this.phoneUser = phoneUser;
-        this.emailUser = emailUser;
-        this.passwordUser = passwordUser;
-        this.authorities = authorities;
-    }
-
-    public UserPrinciple(Long idUser, String nameUser, String emailUser, Long phoneUser, String passwordUser, List<GrantedAuthority> authorities) {
-    }
-
-    public static UserPrinciple build(User user) {
-        List<GrantedAuthority> authorities = user.getRoles().stream().map(role ->
-                new SimpleGrantedAuthority(role.getNameRole().name())
-        ).collect(Collectors.toList());
-
-        return new UserPrinciple(
-                user.getIdUser(),
-                user.getNameUser(),
-                user.getEmailUser(),
-                user.getPhoneUser(),
-                user.getPasswordUser(),
-                authorities
-        );
-    }
-
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public String getNameUser() {
-        return nameUser;
-    }
-
-    public Long getPhoneUser() {
-        return phoneUser;
-    }
-
-    public String getEmailUser() {
-        return emailUser;
-    }
-
-    public String getPasswordUser() {
-        return passwordUser;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -99,30 +38,21 @@ public class UserPrinciple implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserPrinciple user = (UserPrinciple) o;
-        return Objects.equals(idUser, user.idUser);
+        return false;
     }
 }

@@ -1,7 +1,6 @@
 package com.jwtlagi.jwtmore.model;
 
 import org.hibernate.annotations.NaturalId;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -10,14 +9,34 @@ import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.NaturalId;
+
+
 
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
-                "nameUser"
+                "name"
         }),
         @UniqueConstraint(columnNames = {
-                "emailUser"
+                "email"
         })
 })
 
@@ -26,25 +45,26 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+    private Long id;
 
     @NotBlank
     @Size(min=3, max = 50)
-    private String nameUser;
-
-    @NotBlank
-    @Size(min=3, max = 20)
-    private Long phoneUser;
+    private String name;
 
     @NaturalId
     @NotBlank
     @Size(max = 50)
     @Email
-    private String emailUser;
+    private String email;
+
+    @NotBlank
+    @Size(min=3, max = 20)
+    private Long phone;
+
 
     @NotBlank
     @Size(min=6, max = 100)
-    private String passwordUser;
+    private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
@@ -53,54 +73,55 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
 
-    public User(@NotBlank @Size(min = 3, max = 50) String nameUser, @NotBlank @Size(min = 3, max = 20) Long phoneUser, @NotBlank @Size(max = 50) @Email String emailUser, @NotBlank @Size(min = 6, max = 100) String passwordUser) {
-        this.nameUser = nameUser;
-        this.phoneUser = phoneUser;
-        this.emailUser = emailUser;
-        this.passwordUser = passwordUser;
+
+    public User() {
     }
 
-    public User(String nameUser, String emailUser, Long phoneUser, String encode) {
+    public User(@NotBlank @Size(min = 3, max = 50) String name, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(min = 3, max = 20) Long phone, @NotBlank @Size(min = 6, max = 100) String password) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
     }
 
-    public Long getIdUser() {
-        return idUser;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getNameUser() {
-        return nameUser;
+    public String getName() {
+        return name;
     }
 
-    public void setNameUser(String nameUser) {
-        this.nameUser = nameUser;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getPhoneUser() {
-        return phoneUser;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhoneUser(Long phoneUser) {
-        this.phoneUser = phoneUser;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getEmailUser() {
-        return emailUser;
+    public Long getPhone() {
+        return phone;
     }
 
-    public void setEmailUser(String emailUser) {
-        this.emailUser = emailUser;
+    public void setPhone(Long phone) {
+        this.phone = phone;
     }
 
-    public String getPasswordUser() {
-        return passwordUser;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswordUser(String passwordUser) {
-        this.passwordUser = passwordUser;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<Role> getRoles() {

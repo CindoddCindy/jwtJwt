@@ -61,12 +61,12 @@ public class AuthRestAPI {
 
     @PostMapping("/signup")
     public ResponseEntity<String> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
-        if(userRepository.existsByUsername(signUpRequest.getNameUser())) {
+        if(userRepository.userExistByName(signUpRequest.getNameUser())) {
             return new ResponseEntity<String>("Fail -> Username is already taken!",
                     HttpStatus.BAD_REQUEST);
         }
 
-        if(userRepository.existsByEmail(signUpRequest.getEmailUser())) {
+        if(userRepository.userExistByEmail(signUpRequest.getEmailUser())) {
             return new ResponseEntity<String>("Fail -> Email is already in use!",
                     HttpStatus.BAD_REQUEST);
         }
@@ -80,20 +80,20 @@ public class AuthRestAPI {
 
         strRoles.forEach(role -> {
             switch(role) {
-                case "admin":
-                    Role adminRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
+                case "buyer":
+                    Role roleBuyer = roleRepository.findByName(RoleName.ROLE_BUYER)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-                    roles.add(adminRole);
+                    roles.add(roleBuyer);
 
                     break;
                 case "seller":
-                    Role pmRole = roleRepository.findByName(RoleName.ROLE_SELLER)
+                    Role sellerRole = roleRepository.findByName(RoleName.ROLE_SELLER)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-                    roles.add(pmRole);
+                    roles.add(sellerRole);
 
                     break;
                 default:
-                    Role userRole = roleRepository.findByName(RoleName.ROLE_BUYER)
+                    Role userRole = roleRepository.findByName(RoleName.ROLE_ADMIN)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
                     roles.add(userRole);
             }
