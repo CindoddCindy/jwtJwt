@@ -59,7 +59,7 @@ public class User {
 
     @NotBlank
     @Size(min=3, max = 20)
-    private Long phone;
+    private String phone;
 
 
     @NotBlank
@@ -77,7 +77,7 @@ public class User {
     public User() {
     }
 
-    public User(@NotBlank @Size(min = 3, max = 50) String name, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(min = 3, max = 20) Long phone, @NotBlank @Size(min = 6, max = 100) String password) {
+    public User(@NotBlank @Size(min = 3, max = 50) String name, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(min = 3, max = 20) String phone, @NotBlank @Size(min = 6, max = 100) String password) {
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -108,11 +108,11 @@ public class User {
         this.email = email;
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

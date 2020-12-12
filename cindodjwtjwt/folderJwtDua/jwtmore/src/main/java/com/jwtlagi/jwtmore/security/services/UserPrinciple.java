@@ -28,14 +28,14 @@ public class UserPrinciple implements UserDetails {
 
     private String email;
 
-    private Long phone;
+    private String phone;
 
     @JsonIgnore
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrinciple(Long id, String name, String email, Long phone, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UserPrinciple(Long id, String name, String email, String phone, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -71,7 +71,7 @@ public class UserPrinciple implements UserDetails {
         return email;
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 

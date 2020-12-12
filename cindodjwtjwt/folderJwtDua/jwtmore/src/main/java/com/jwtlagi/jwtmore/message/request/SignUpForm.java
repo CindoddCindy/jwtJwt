@@ -24,7 +24,7 @@ public class SignUpForm {
 
     @NotBlank
     @Size(min=3, max = 20)
-    private Long phone;
+    private String phone;
 
 
     @NotBlank
@@ -47,11 +47,11 @@ public class SignUpForm {
         this.email = email;
     }
 
-    public Long getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Long phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
